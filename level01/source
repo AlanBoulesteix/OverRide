@@ -3,7 +3,7 @@ char	user_name[100];
 bool	verify_user_name(user_name_to_check)
 {
 	puts("verifying username....\n");
-	return memcmp(user_name_to_check, "dat_wil", 7u) != 0;
+	return memcmp(user_name_to_check, "dat_wil", 7) != 0;
 }
 
 bool	verify_user_pass(const void *str)
