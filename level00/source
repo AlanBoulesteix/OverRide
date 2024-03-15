@@ -1,0 +1,23 @@
+#include <defs.h>
+
+int	main(int argc, const char **argv, const char **envp)
+{
+	int input;
+
+	puts("***********************************");
+	puts("* \t     -Level00 -\t\t  *");
+	puts("***********************************");
+	printf("Password:");
+	__isoc99_scanf("%d", &input);
+	if ( input == 5276 )
+	{
+		puts("\nAuthenticated!");
+		system("/bin/sh");
+		return 0;
+	}
+	else
+	{
+		puts("\nInvalid Password!");
+		return 1;
+	}
+}
