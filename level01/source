@@ -1,37 +1,35 @@
-bool verify_user_name(a_user_name)
+char	user_name[100];
+
+bool	verify_user_name(user_name_to_check)
 {
-  puts("verifying username....\n");
-  return memcmp(a_user_name, "dat_wil", 7u) != 0;
+	puts("verifying username....\n");
+	return memcmp(user_name_to_check, "dat_wil", 7u) != 0;
 }
 
-
-bool verify_user_pass(const void *a1)
+bool	verify_user_pass(const void *str)
 {
-  return memcmp(a1, "admin", 5u) != 0;
+	return memcmp(str, "admin", 5) != 0;
 }
-
 
 int main(int argc, const char **argv, const char **envp)
 {
-  char s[64];
-  bool v5;
+	char	s[64];
+	bool	check;
 
-  memset(s, 0, sizeof(s));
-  v5 = 0;
-  puts("********* ADMIN LOGIN PROMPT *********");
-  printf("Enter Username: ");
-  fgets(a_user_name, 256, stdin);
-  v5 = verify_user_name();
-  if ( v5 )
-  {
-    puts("nope, incorrect username...\n");
-  }
-  else
-  {
-    puts("Enter Password: ");
-    fgets(s, 100, stdin);
-    v5 = verify_user_pass(s);
-    puts("nope, incorrect password...\n");
-  }
-  return 1;
+	memset(s, 0, sizeof(s));
+	check = 0;
+	puts("********* ADMIN LOGIN PROMPT *********");
+	printf("Enter Username: ");
+	fgets(user_name, 256, 0);
+	check = verify_user_name();
+	if ( check )
+		puts("nope, incorrect username...\n");
+	else
+	{
+		puts("Enter Password: ");
+		fgets(s, 100, 0);
+		check = verify_user_pass(s);
+		puts("nope, incorrect password...\n");
+	}
+	return 1;
 }
