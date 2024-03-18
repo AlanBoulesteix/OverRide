@@ -7,7 +7,7 @@ In this level of the OverRide project, our task is to gain access to the level01
 ssh level00@localhost -p 4545
 ```
 
-Upon successful authentication, we find a program waiting for us. Our first step is to understand its functionality. To accomplish this, we utilize the excellent tool [dogbolt](https://dogbolt.org/) to decompile the binary, revealing the [source code](./source).
+Upon successful authentication, we find a program waiting for us. Our first step is to understand its functionality. To accomplish this, rewrite the [source code](./source) from `assembly`.
 
 ### Analysis
 
