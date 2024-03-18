@@ -1,5 +1,6 @@
 {
 	"files.associations": {
-		"source": "c"
+		"source": "c",
+		"string.h": "c"
 	}
 }

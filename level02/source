@@ -4,19 +4,15 @@
 int	main(int argc, const char **argv, const char **envp)
 {
 	char	str2[96];
-	int		v5;
 	char	ptr[48];
 	char	str[96];
-	int 	v8;
 	int 	read_ret;
 	int 	stream;
 
 	memset(str, 0, sizeof(s));
-	v8 = 0;
 	memset(ptr, 0, 41);
 	memset(str2, 0, sizeof(str2));
-	v5 = 0;
-	stream = 0LL;
+	stream = 0;
 	read_ret = 0;
 	stream = fopen("/home/users/level03/.pass", "r");
 	if ( !stream )
