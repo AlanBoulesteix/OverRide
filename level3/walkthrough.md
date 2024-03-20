@@ -12,7 +12,7 @@ to 322424845, and then try if the result is between 1 and 21. if it does, we use
 
 ### Progress
 
-We did a small [script](./Ressources/script.s) that trys every key to decode the password ``Q}|u`sfg~sf{}|a3`` and it return `18`.
+We did a small [script](./Ressources/script.py) that trys every key to decode the password ``Q}|u`sfg~sf{}|a3`` and it return `18`.
 
 322424845 - 18 = 322424827
 
