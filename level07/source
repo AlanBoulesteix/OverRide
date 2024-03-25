@@ -1,30 +1,40 @@
+int get_unum()
+{
+	int var_10 = 0;
+	fflush(1);
+	scanf("%d", &var_10);
+	clear_stdin();
+	return var_10;
+}
+
+
 int store_number(int arg1)
 {
-    int var_14 = 0;
-    int var_10 = 0;
-    printf(" Number: ");
-    int eax = get_unum();
-    printf(" Index: ");
-    int eax_1 = get_unum();
-    int eax_3;
-    int edx;
-    edx = HIGHD((eax_1 * 0xaaaaaaab));
-    eax_3 = LOWD((eax_1 * 0xaaaaaaab));
-    int edx_1 = (edx >> 1);
-    int eax_9;
-    if (((eax_1 - ((edx_1 + edx_1) + edx_1)) == 0 || ((eax_1 - ((edx_1 + edx_1) + edx_1)) != 0 && (eax >> 0x18) == 0xb7)))
-    {
-        puts(" *** ERROR! ***");
-        puts("   This index is reserved for wi…");
-        puts(" *** ERROR! ***");
-        eax_9 = 1;
-    }
-    if (((eax_1 - ((edx_1 + edx_1) + edx_1)) != 0 && (eax >> 0x18) != 0xb7))
-    {
-        *((eax_1 << 2) + arg1) = eax;
-        eax_9 = 0;
-    }
-    return eax_9;
+	int var_14 = 0;
+	int var_10 = 0;
+	printf(" Number: ");
+	int eax = get_unum();
+	printf(" Index: ");
+	int eax_1 = get_unum();
+	int eax_3;
+	int edx;
+	edx = HIGHD((eax_1 * 0xaaaaaaab));
+	eax_3 = LOWD((eax_1 * 0xaaaaaaab));
+	int edx_1 = (edx >> 1);
+	int eax_9;
+	if (((eax_1 - ((edx_1 + edx_1) + edx_1)) == 0 || ((eax_1 - ((edx_1 + edx_1) + edx_1)) != 0 && (eax >> 0x18) == 0xb7)))
+	{
+		puts(" *** ERROR! ***");
+		puts("   This index is reserved for wi…");
+		puts(" *** ERROR! ***");
+		eax_9 = 1;
+	}
+	if (((eax_1 - ((edx_1 + edx_1) + edx_1)) != 0 && (eax >> 0x18) != 0xb7))
+	{
+		*((eax_1 << 2) + arg1) = eax;
+		eax_9 = 0;
+	}
+	return eax_9;
 }
 
 int read_number(int arg1)
@@ -91,7 +101,7 @@ int main(int argc, char** argv, char** envp)
 	{
 		printf("Input command: ", var_1dc, var_1d8);
 		int var_2c_1 = 1;
-		var_1d8 = stdin;
+		var_1d8 = 0; // stdin
 		int var_28;
 		fgets(&var_28, 0x14, var_1d8);
 		int ecx_3 = 0xffffffff;
