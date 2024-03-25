@@ -7,6 +7,34 @@ int	get_unum()
 	return input;
 }
 
+int	store_number(int param_1)
+
+{
+	uint uVar1;
+	uint uVar2;
+	undefined4 uVar3;
+
+	printf(" Number: ");
+	uVar1 = get_unum();
+	printf(" Index: ");
+	uVar2 = get_unum();
+	if ((uVar2 % 3 == 0) || (uVar1 >> 0x18 == 0xb7))
+	{
+		puts(" *** ERROR! ***");
+		puts("   This index is reserved for wil!");
+		puts(" *** ERROR! ***");
+		uVar3 = 1;
+	}
+	else
+	{
+		*(uint *)(uVar2 * 4 + param_1) = uVar1;
+		uVar3 = 0;
+	}
+	return uVar3;
+}
+
+
+
 int	store_number(int *data)
 {
 	int		ret;
@@ -40,7 +68,7 @@ int	read_number(int	*data)
 
 int	main(int argc, char** argv, char** envp)
 {
-	int		data[683];
+	int		data[118];
 	char	*str;
 	int		ret;
 
