@@ -1,0 +1,205 @@
+int store_number(int arg1)
+{
+    int var_14 = 0;
+    int var_10 = 0;
+    printf(" Number: ");
+    int eax = get_unum();
+    printf(" Index: ");
+    int eax_1 = get_unum();
+    int eax_3;
+    int edx;
+    edx = HIGHD((eax_1 * 0xaaaaaaab));
+    eax_3 = LOWD((eax_1 * 0xaaaaaaab));
+    int edx_1 = (edx >> 1);
+    int eax_9;
+    if (((eax_1 - ((edx_1 + edx_1) + edx_1)) == 0 || ((eax_1 - ((edx_1 + edx_1) + edx_1)) != 0 && (eax >> 0x18) == 0xb7)))
+    {
+        puts(" *** ERROR! ***");
+        puts("   This index is reserved for wi…");
+        puts(" *** ERROR! ***");
+        eax_9 = 1;
+    }
+    if (((eax_1 - ((edx_1 + edx_1) + edx_1)) != 0 && (eax >> 0x18) != 0xb7))
+    {
+        *((eax_1 << 2) + arg1) = eax;
+        eax_9 = 0;
+    }
+    return eax_9;
+}
+
+int read_number(int arg1)
+{
+    int var_10 = 0;
+    printf(" Index: ");
+    int eax = get_unum();
+    printf(" Number at data[%u] is %u\n", eax, *((eax << 2) + arg1));
+    return 0;
+}
+
+int main(int argc, char** argv, char** envp)
+{
+	char** var_1c4 = argv;
+	char** var_1c8 = envp;
+	void* gsbase;
+	int eax_2 = *(gsbase + 0x14);
+	int var_2c;
+	memset(var_2c, 0, 0x18);
+	void var_1bc;
+	memset(&var_1bc, 0, 0x190);
+	int* var_1dc;
+	size_t var_1d8;
+	while (*var_1c4 != 0)
+	{
+		int ecx_1 = 0xffffffff;
+		char* edi_1 = *var_1c4;
+		while (ecx_1 != 0)
+		{
+			bool cond = 0 != *edi_1;
+			edi_1 = &edi_1[1];
+			ecx_1 = (ecx_1 - 1);
+			if ((!cond))
+			{
+				break;
+			}
+		}
+		var_1d8 = ((!ecx_1) - 1);
+		var_1dc = NULL;
+		memset(*var_1c4, 0, var_1d8);
+		var_1c4 = &var_1c4[1];
+	}
+	while (*var_1c8 != 0)
+	{
+		int ecx_2 = 0xffffffff;
+		char* edi_2 = *var_1c8;
+		while (ecx_2 != 0)
+		{
+			bool cond = 0 != *edi_2;
+			edi_2 = &edi_2[1];
+			ecx_2 = (ecx_2 - 1);
+			if ((!cond))
+			{
+				break;
+			}
+		}
+		var_1d8 = ((!ecx_2) - 1);
+		var_1dc = NULL;
+		memset(*var_1c8, 0, var_1d8);
+		var_1c8 = &var_1c8[1];
+	}
+	puts("--------------------------------…");
+	while (true)
+	{
+		printf("Input command: ", var_1dc, var_1d8);
+		int var_2c_1 = 1;
+		var_1d8 = stdin;
+		int var_28;
+		fgets(&var_28, 0x14, var_1d8);
+		int ecx_3 = 0xffffffff;
+		int* edi_3 = &var_28;
+		while (ecx_3 != 0)
+		{
+			bool cond = 0 != *edi_3;
+			edi_3 = (edi_3 + 1);
+			ecx_3 = (ecx_3 - 1);
+			if ((!cond))
+			{
+				break;
+			}
+		}
+		bool c_1 = ((!ecx_3) - 1) < 1;
+		bool z_1 = (!ecx_3) == 2;
+		*(&var_28 + ((!ecx_3) - 2)) = 0;
+		int ecx_4 = 5;
+		int* esi_1 = &var_28;
+		void* const edi_4 = "store";
+		while (ecx_4 != 0)
+		{
+			char temp1_1 = *esi_1;
+			char temp2_1 = *edi_4;
+			c_1 = temp1_1 < temp2_1;
+			z_1 = temp1_1 == temp2_1;
+			esi_1 = (esi_1 + 1);
+			edi_4 = (edi_4 + 1);
+			ecx_4 = (ecx_4 - 1);
+			if ((!z_1))
+			{
+				break;
+			}
+		}
+		int eax_25 = (((!z_1) && (!c_1)) - c_1);
+		bool c_2 = false;
+		bool z_2 = (eax_25 & eax_25) == 0;
+		if (z_2)
+		{
+			var_2c_1 = store_number(&var_1bc);
+		}
+		else
+		{
+			int ecx_6 = 4;
+			int* esi_2 = &var_28;
+			void* const edi_5 = "read";
+			while (ecx_6 != 0)
+			{
+				char temp3_1 = *esi_2;
+				char temp4_1 = *edi_5;
+				c_2 = temp3_1 < temp4_1;
+				z_2 = temp3_1 == temp4_1;
+				esi_2 = (esi_2 + 1);
+				edi_5 = (edi_5 + 1);
+				ecx_6 = (ecx_6 - 1);
+				if ((!z_2))
+				{
+					break;
+				}
+			}
+			int eax_29 = (((!z_2) && (!c_2)) - c_2);
+			bool c_3 = false;
+			bool z_3 = (eax_29 & eax_29) == 0;
+			if (z_3)
+			{
+				read_number(&var_1bc);
+				var_2c_1 = 0;
+			}
+			else
+			{
+				int ecx_8 = 4;
+				int* esi_3 = &var_28;
+				void* const edi_6 = "quit";
+				while (ecx_8 != 0)
+				{
+					char temp5_1 = *esi_3;
+					char temp6_1 = *edi_6;
+					c_3 = temp5_1 < temp6_1;
+					z_3 = temp5_1 == temp6_1;
+					esi_3 = (esi_3 + 1);
+					edi_6 = (edi_6 + 1);
+					ecx_8 = (ecx_8 - 1);
+					if ((!z_3))
+					{
+						break;
+					}
+				}
+				if ((((!z_3) && (!c_3)) - c_3) == 0)
+				{
+					if (eax_2 == *(gsbase + 0x14))
+					{
+						return 0;
+					}
+					__stack_chk_fail();
+					/* no return */
+				}
+			}
+		}
+		if (var_2c_1 == 0)
+		{
+			var_1dc = &var_28;
+			printf(" Completed %s command successful…", var_1dc);
+		}
+		else
+		{
+			var_1dc = &var_28;
+			printf(" Failed to do %s command\n", var_1dc);
+		}
+		memset(var_28, 0, 0x14);
+	}
+}
