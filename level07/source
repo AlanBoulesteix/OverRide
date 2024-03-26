@@ -1,3 +1,4 @@
+#include <stdbool.h>
 int	get_unum()
 {
 	int input = 0;
@@ -52,7 +53,7 @@ int	store_number(int *data)
 	}
 	else
 	{
-		data[index] = number;
+		*(unsigned int)(index * 4 + data) = number;
 		ret = 0;
 	}
 	return ret;
@@ -68,7 +69,11 @@ int	read_number(int	*data)
 
 int	main(int argc, char** argv, char** envp)
 {
+<<<<<<< Updated upstream
 	int		data[118];
+=======
+	int		data[464];
+>>>>>>> Stashed changes
 	char	*str;
 	int		ret;
 
@@ -82,7 +87,7 @@ int	main(int argc, char** argv, char** envp)
 	puts("----------------------------------------------------");
 	puts("   wil has reserved some storage :>");
 	puts("----------------------------------------------------");
-	while (true)
+	while (1)
 	{
 		printf("Input command: ");
 		ret = 1;

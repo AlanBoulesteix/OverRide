@@ -26,11 +26,20 @@ bool	auth(char *s, int serial_value)
 		s_encoded += (s_encoded ^ (unsigned int)s[i]) % 1337;
 		}
 		return serial_value != s_encoded;
+	int v4;
+	int v5;
+
+	s[strcspn(s, "\n")] = 0;
+	int v4;
+	int v5;
+
+	s[strcspn(s, "\n")] = 0;
 =======
 	int v4;
 	int v5;
 
 	s[strcspn(s, "\n")] = 0;
+>>>>>>> Stashed changes
 	v5 = strnlen(s, 32);
 	if ( v5 <= 5 )
 		return 1;
@@ -51,7 +60,6 @@ bool	auth(char *s, int serial_value)
 			v4 += (v4 ^ (unsigned int)s[i]) % 1337;
 		}
 		return a2 != v4;
->>>>>>> Stashed changes
 	}
 }
 
