@@ -4,7 +4,7 @@ unsigned int log_wrapper(FILE *a1, const char *a2, const char *a3)
 {
 	char dest[264];
 	unsigned int v6;
-	
+
 	v6 = __readfsqword(0x28u);
 	strcpy(dest, a2);
 	snprintf(&dest[strlen(dest)], 254 - strlen(dest), a3);
@@ -20,7 +20,7 @@ int	main(int argc, const char **argv, const char **envp)
 	int fd;
 	char buf;
 	char dest[104];
-	unsigned __int64 v9;
+	unsigned int v9;
 
 	v9 = __readfsqword(0x28u);
 	buf = -1;
