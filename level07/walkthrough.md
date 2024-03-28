@@ -93,6 +93,7 @@ Input command: read
 4158936339 in hex = F7E45513
 so yes exactly the adress we want to target. But we cannot change the value because 114 % 3 = 0.
 So it's reserved for will. But there is something that we can do is actually doing a buffer overflow because we are not puting at the 114 place but actually at the 456 places
+
 ```C
 *(unsigned int)(index * 4 + data) = number;
 ```

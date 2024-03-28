@@ -1,6 +1,6 @@
 ## Project README: Finding flag05
 
-The [proGram](./source) given is taking a inout from stdin, and print a lower case version of our input. The thing is, the program is using printf in a way that allow us to use `Format string attack`. 
+The [proGram](./source) given is taking a input from stdin, and print a lower case version of our input. The thing is, the program is using printf in a way that allow us to use `Format string attack`. 
 
 ### Analysis
 
