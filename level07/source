@@ -8,18 +8,18 @@ int	get_unum()
 	return input;
 }
 
-int	store_number(int param_1)
+int	store_number(int *param_1)
 
 {
-	uint uVar1;
-	uint uVar2;
-	undefined4 uVar3;
+	unsigned int uVar1;
+	unsigned int uVar2;
+	int uVar3;
 
 	printf(" Number: ");
 	uVar1 = get_unum();
 	printf(" Index: ");
 	uVar2 = get_unum();
-	if ((uVar2 % 3 == 0) || (uVar1 >> 0x18 == 0xb7))
+	if ((uVar2 % 3 == 0) || (uVar1 >> 24 == 183))
 	{
 		puts(" *** ERROR! ***");
 		puts("   This index is reserved for wil!");
@@ -28,35 +28,10 @@ int	store_number(int param_1)
 	}
 	else
 	{
-		*(uint *)(uVar2 * 4 + param_1) = uVar1;
+		*(unsigned int *)(uVar2 * 4 + param_1) = uVar1;
 		uVar3 = 0;
 	}
 	return uVar3;
-}
-
-
-
-int	store_number(int *data)
-{
-	int		ret;
-
-	printf(" Number: ");
-	int number = get_unum();
-	printf(" Index: ");
-	int index = get_unum();
-	if (index % 3 == 0)
-	{
-		puts(" *** ERROR! ***");
-		puts("   This index is reserved for wil!");
-		puts(" *** ERROR! ***");
-		ret = 1;
-	}
-	else
-	{
-		*(unsigned int)(index * 4 + data) = number;
-		ret = 0;
-	}
-	return ret;
 }
 
 int	read_number(int	*data)
@@ -69,12 +44,8 @@ int	read_number(int	*data)
 
 int	main(int argc, char** argv, char** envp)
 {
-<<<<<<< Updated upstream
-	int		data[118];
-=======
-	int		data[464];
->>>>>>> Stashed changes
-	char	*str;
+	int		data[100];
+	char	str[20];
 	int		ret;
 
 	puts("----------------------------------------------------");
